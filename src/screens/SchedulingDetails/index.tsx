@@ -87,7 +87,13 @@ export function SchedulingDetails(){
       id: car.id,
       unavailable_dates
     })
-    .then(() => navigation.navigate('SchedulingComplete'))
+    .then(() => {
+      navigation.navigate('Confirmation', {
+        nextScreenToute: 'Home',
+        title: 'Carro alugado',
+        message: `Agora você só ir\naté aconcessionária da RENTX\npegar seu automóvel.`
+      });
+    })
     .catch(() => {
       Alert.alert('Não foi possível confirmar o agendamento');
       setLoading(false);
@@ -133,14 +139,14 @@ export function SchedulingDetails(){
 
         <Accessories>
           {
-              car.accessories.map(accessory => (
-                <Accessory
-                  key={accessory.type}
-                  name={accessory.name}
-                  icon={getAccessoryIcon(accessory.type)} 
-                />          
-              ))
-            }
+            car.accessories.map(accessory => (
+              <Accessory
+                key={accessory.type}
+                name={accessory.name}
+                icon={getAccessoryIcon(accessory.type)} 
+              />          
+            ))
+          }
         </Accessories>
 
         <RentalPeriod>
