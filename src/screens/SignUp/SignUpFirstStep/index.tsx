@@ -89,7 +89,7 @@ export function SignUpFirstStep(){
             />
             <Input 
               iconName="mail"
-              placeholder="Nome"
+              placeholder="E-mail"
               keyboardType="email-address"
               onChangeText={setEmail}
               value={email}
